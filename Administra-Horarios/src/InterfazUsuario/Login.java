@@ -206,8 +206,8 @@ public class Login extends javax.swing.JFrame {
     
       //Inserciones de Grupos
       
-      Grupo g1= new Grupo("50", at3, p2);
-      Grupo g2= new Grupo("51", at2, p1);
+      //Grupo g1= new Grupo("50", at3, p2);
+      //Grupo g2= new Grupo("51", at2, p1);
     
     }
     

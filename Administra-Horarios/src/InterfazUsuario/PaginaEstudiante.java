@@ -45,6 +45,13 @@ public class PaginaEstudiante extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tCursosEstudiante = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tHorarioEstudiantes = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tCursosChoques = new javax.swing.JTable();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -60,6 +67,8 @@ public class PaginaEstudiante extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -102,32 +111,69 @@ public class PaginaEstudiante extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(tCursosEstudiante);
 
+        tHorarioEstudiantes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(tHorarioEstudiantes);
+
+        tCursosChoques.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane4.setViewportView(tCursosChoques);
+
+        jLabel4.setText("Cursos Pertenecientes al Semestre Seleccionado");
+
+        jLabel5.setText("Horario Grafico del Semestre");
+
+        jLabel6.setText("Cursos con Choque de Horarios");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(27, 27, 27)
-                .addComponent(cbSemestreEstudiante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(164, 164, 164))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 702, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1)
+                            .addComponent(jScrollPane4))
                         .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(lNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(90, 90, 90)
+                                .addComponent(jLabel2)
+                                .addGap(27, 27, 27)
+                                .addComponent(cbSemestreEstudiante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel3)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lTipoUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
+                        .addComponent(lTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1))))
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,13 +184,22 @@ public class PaginaEstudiante extends javax.swing.JFrame {
                     .addComponent(lNombreUsuario)
                     .addComponent(jLabel3)
                     .addComponent(lTipoUsuario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
                     .addComponent(cbSemestreEstudiante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -168,7 +223,10 @@ public class PaginaEstudiante extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void cbSemestreEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSemestreEstudianteActionPerformed
-        llenarTablaCursos();// TODO add your handling code here:
+        llenarTablaCursos();
+        llenarTablaHorarios();
+        llenarTablaChoques();
+        // TODO add your handling code here:
     }//GEN-LAST:event_cbSemestreEstudianteActionPerformed
 
     /**
@@ -228,7 +286,23 @@ public class PaginaEstudiante extends javax.swing.JFrame {
         tCursosEstudiante.removeAll();
         DefaultTableModel tm = new DefaultTableModel(arrayCursos,columnas);
         tCursosEstudiante.setModel(tm);
-        
+    }
+    
+    private void llenarTablaHorarios(){
+        String columnas[] = {"Hora","Lunes","Martes","Miercoles","Jueves","Viernes"};
+        String arrayHorario[][] = instancia.obtenerArrayHorario(
+                Integer.parseInt(cbSemestreEstudiante.getSelectedItem().toString()));
+        tHorarioEstudiantes.removeAll();
+        DefaultTableModel tm = new DefaultTableModel(arrayHorario,columnas);
+        tHorarioEstudiantes.setModel(tm);
+    }
+    
+    private void llenarTablaChoques(){
+        String columnas[] = {"Nombre","Dia","Hora Inicio","Hora Final"};
+        String arrayChoques[][] = instancia.obtenerArrayChoqueHorarios();
+        tCursosChoques.removeAll();
+        DefaultTableModel tm = new DefaultTableModel(arrayChoques, columnas);
+        tCursosChoques.setModel(tm);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -237,11 +311,18 @@ public class PaginaEstudiante extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lNombreUsuario;
     private javax.swing.JLabel lTipoUsuario;
+    private javax.swing.JTable tCursosChoques;
     private javax.swing.JTable tCursosEstudiante;
+    private javax.swing.JTable tHorarioEstudiantes;
     // End of variables declaration//GEN-END:variables
 }

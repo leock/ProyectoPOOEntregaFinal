@@ -42,11 +42,17 @@ public class Grupo {
             this.profesor = profesor;
         }
 
-	public Grupo(String n, Asignatura a, Profesor p) {
+	public Grupo(String n, Asignatura a, Profesor p, HorarioGrupo h) {
 		this.asignaturo = a;
-               // this.horario = h;
+                this.horario = h;
                 this.nombre = n;
                 this.profesor = p;
 	}
+        
+        public String[] toArrayString(){
+            String informacion[] = {this.asignaturo.getNombre(), this.horario.getDia(), 
+                this.horario.getHoraInicio(), this.horario.getHoraFinal()};
+            return informacion;
+        }
 
 }
