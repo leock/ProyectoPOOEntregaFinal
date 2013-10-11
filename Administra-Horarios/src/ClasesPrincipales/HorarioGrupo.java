@@ -39,4 +39,9 @@ public class HorarioGrupo {
                 this.horaInicio = hI;
 	}
 
+        public void actualizar(String d, String hI, String hF){
+            this.dia = d;
+            this.horaInicio = hI;
+            this.horaFinal = hF;
+        }
 }

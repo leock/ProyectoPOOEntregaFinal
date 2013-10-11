@@ -50,4 +50,6 @@ public abstract class Asignatura {
         }
         
         public abstract String[] toArrayString();
+        
+        public abstract String obtenerTipoAsignatura(int p);
 }

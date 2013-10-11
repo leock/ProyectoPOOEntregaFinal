@@ -46,4 +46,9 @@ public class AsignaturaPractica extends Asignatura {
         };
         return informacion;
     }
+
+    @Override
+    public String obtenerTipoAsignatura(int p) {
+        return "Practica";
+    }
 }

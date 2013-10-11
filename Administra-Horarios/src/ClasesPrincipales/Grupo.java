@@ -54,5 +54,12 @@ public class Grupo {
                 this.horario.getHoraInicio(), this.horario.getHoraFinal()};
             return informacion;
         }
+        
+        public String[] arrayInfoGrupo(){
+            String informacion[] = {this.nombre, this.asignaturo.getNombre(), 
+                this.horario.getDia(), this.horario.getHoraInicio(), 
+                this.horario.getHoraFinal()};
+            return informacion;
+        }
 
 }

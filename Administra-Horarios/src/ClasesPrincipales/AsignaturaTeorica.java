@@ -36,4 +36,9 @@ public class AsignaturaTeorica extends Asignatura {
         };
         return informacion;
     }  
+
+    @Override
+    public String obtenerTipoAsignatura(int p) {
+        return "Teorica";
+    }
 }

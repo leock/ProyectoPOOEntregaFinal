@@ -168,7 +168,7 @@ public class Controlador {
         AsignaturaPractica as2 = new AsignaturaPractica("apollo", "windows", "Intro",
                 4, 12, "computacion");
         listaSemestres.get(buscarSemestre(1)).agregarAsignatura(as2);
-        HorarioGrupo h2 = new HorarioGrupo("Martes", "7:00", "11:30");
+        HorarioGrupo h2 = new HorarioGrupo("Martes", "7:55", "11:30");
         Grupo g2 = new Grupo("G50", as2, p1, h2);
         listagrupo.add(g2);
         
@@ -378,5 +378,17 @@ public class Controlador {
             cursos[i] = listaGruposChoques.get(i).toArrayString();
         }
         return cursos;
+    }
+    
+    public String[] obtenerInfoGrupo(int index){
+        return listagrupo.get(index).arrayInfoGrupo();
+    }
+    
+    public void actualizarGrupo(int iG, String d, String hI, String hF){
+        listagrupo.get(iG).getHorario().actualizar(d, hI, hF);
+    }
+    
+    public int largoListaGrupos(){
+        return this.listagrupo.size();
     }
 }
