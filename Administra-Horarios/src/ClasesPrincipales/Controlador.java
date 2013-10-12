@@ -391,4 +391,50 @@ public class Controlador {
     public int largoListaGrupos(){
         return this.listagrupo.size();
     }
+
+/**
+     * Obtiene los datos de la lista de asignaturas practicas
+     * @return lista de asignaturas practicas
+     */
+    public LinkedList<AsignaturaPractica> getlistaasignaturap(){
+    return listaAsignaturaPractica;
+    }
+   
+     /**
+     * Obtiene los datos de la lista de asignaturas teóricas
+     * @return lista de asignaturas teóricas
+     */
+    public LinkedList<AsignaturaTeorica> getlistaasignaturat(){
+    return listaAsignaturaTeoricas;
+    }
+    
+    
+    
+    public void modificarasigpractica(String mA, String sO, String nom, int num, int hD, String cC){
+     for (int i = 0, l = listaAsignaturaPractica.size(); i < l; i++){
+            if (listaAsignaturaPractica.get(i).getNombre().equals( nom)){
+                
+                listaAsignaturaPractica.get(i).setNumeroCreditos(num);
+                listaAsignaturaPractica.get(i).setHorasDedicadas(hD);
+                listaAsignaturaPractica.get(i).setCategoriaCurso(cC);
+                listaAsignaturaPractica.get(i).setMaterialApollo(mA);
+                listaAsignaturaPractica.get(i).setSistemaOperativo(sO);
+                
+                
+            }}
+    }
+         public void modificarasigteorica(String p, String nom, int num, int hD, String cC){
+     for (int i = 0, l = listaAsignaturaTeoricas.size(); i < l; i++){
+            if (listaAsignaturaTeoricas.get(i).getNombre().equals( nom)){
+                
+                listaAsignaturaTeoricas.get(i).setNumeroCreditos(num);
+                listaAsignaturaTeoricas.get(i).setHorasDedicadas(hD);
+                listaAsignaturaTeoricas.get(i).setCategoriaCurso(cC);
+                
+                listaAsignaturaTeoricas.get(i).setPagina(cC);
+                
+                
+            }}
+        
+    }
 }

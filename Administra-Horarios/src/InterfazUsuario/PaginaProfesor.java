@@ -5,6 +5,7 @@
 package InterfazUsuario;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
+import javax.swing.*;
 
 /**
  *
@@ -36,6 +37,9 @@ public class PaginaProfesor extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jDialog1 = new javax.swing.JDialog();
+        jLabel13 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         lNombreUsuario = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -53,9 +57,9 @@ public class PaginaProfesor extends javax.swing.JFrame {
         cat = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         horasd = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        practicas = new javax.swing.JComboBox();
+        jLabel11 = new javax.swing.JLabel();
         asigteo = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         nom1 = new javax.swing.JTextField();
@@ -66,15 +70,51 @@ public class PaginaProfesor extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         cat1 = new javax.swing.JTextField();
         op1 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         MA = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
+        teoricas = new javax.swing.JComboBox();
+        jLabel12 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+
+        jDialog1.setMinimumSize(new java.awt.Dimension(100, 100));
+
+        jLabel13.setText("Modificado con Exito!!!");
+
+        jButton1.setText("Aceptar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addComponent(jLabel13))
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addGap(131, 131, 131)
+                        .addComponent(jButton1)))
+                .addContainerGap(123, Short.MAX_VALUE))
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(jLabel13)
+                .addGap(27, 27, 27)
+                .addComponent(jButton1)
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -138,15 +178,26 @@ public class PaginaProfesor extends javax.swing.JFrame {
         asigpractica.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
         asigpractica.add(horasd, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 118, -1));
 
-        jButton1.setText(">");
-        asigpractica.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, -1, -1));
-
-        jButton2.setText("<");
-        asigpractica.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, -1, -1));
-
         jButton3.setText("Modificar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         asigpractica.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, -1, -1));
 
+        practicas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                practicasActionPerformed(evt);
+            }
+        });
+        asigpractica.add(practicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 120, -1));
+
+        jLabel11.setText("Seleccione el curso");
+        asigpractica.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
+
+        asigteo.setMinimumSize(new java.awt.Dimension(415, 210));
+        asigteo.setPreferredSize(new java.awt.Dimension(415, 210));
         asigteo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setText("Nombre");
@@ -181,19 +232,40 @@ public class PaginaProfesor extends javax.swing.JFrame {
         });
         asigteo.add(op1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 118, -1));
 
-        jButton4.setText("<");
-        asigteo.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, -1, -1));
-
-        jButton5.setText(">");
-        asigteo.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, -1, -1));
-
         MA.setText("Material Apoyo");
         asigteo.add(MA, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
 
         jButton6.setText("Modificar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         asigteo.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, -1, -1));
 
+        teoricas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                teoricasActionPerformed(evt);
+            }
+        });
+        asigteo.add(teoricas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 120, -1));
+
+        jLabel12.setText("Seleccione el curso");
+        asigteo.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
+
+        jButton7.setText("Salir");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
         jMenu1.setText("Asignatura");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
 
         jMenuItem1.setText("Práctica");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -231,7 +303,8 @@ public class PaginaProfesor extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lTipoUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(152, 152, 152))
+                .addGap(79, 79, 79)
+                .addComponent(jButton7))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(asigpractica, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
                 .addContainerGap())
@@ -248,9 +321,10 @@ public class PaginaProfesor extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(lNombreUsuario)
                     .addComponent(jLabel8)
-                    .addComponent(lTipoUsuario))
-                .addGap(27, 27, 27)
-                .addComponent(asigpractica, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
+                    .addComponent(lTipoUsuario)
+                    .addComponent(jButton7))
+                .addGap(22, 22, 22)
+                .addComponent(asigpractica, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -261,8 +335,10 @@ public class PaginaProfesor extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+ int i=0; //asignatura teorica
 
-    
+  //int x=y;//practica
+  int z= i;//teorica
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         cargarInformacion();// TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
@@ -280,9 +356,27 @@ public class PaginaProfesor extends javax.swing.JFrame {
     }//GEN-LAST:event_nomActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+         Boolean t = false;
+        try{ 
+       // practicas.removeAllItems();
+            
         asigteo.setVisible(false);
         asigpractica.setVisible(true);
-        
+        t= true;
+      
+        for(int i=0; i<Login.instancia.getlistaasignaturap().size(); i++ ){
+        practicas.addItem(Login.instancia.getlistaasignaturap().get(i).getNombre());
+        }
+       
+       // teoricas.removeAllItems();
+       }catch(IndexOutOfBoundsException e){
+       System.out.printf(e.getMessage());
+       }
+         
+         if (t){
+         
+     teoricas.removeAllItems();
+         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void nom1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nom1ActionPerformed
@@ -294,9 +388,80 @@ public class PaginaProfesor extends javax.swing.JFrame {
     }//GEN-LAST:event_op1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    Boolean s= false;
+        try{
         asigpractica.setVisible(false);
         asigteo.setVisible(true);
+        s= true;
+         for(int i=0; i<Login.instancia.getlistaasignaturat().size(); i++ ){
+        teoricas.addItem(Login.instancia.getlistaasignaturat().get(i).getNombre());
+        }
+
+         //practicas.removeAllItems();
+    }catch (IndexOutOfBoundsException e){
+       System.out.printf(e.getMessage());
+       }
+        if (s){
+        practicas.removeAllItems();}
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+     
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        this.setVisible(false);
+        new Login().setVisible(true);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void practicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_practicasActionPerformed
+
+      try{
+       nom.setText(Login.instancia.getlistaasignaturap().get(practicas.getSelectedIndex()).getNombre());
+       cred.setText(String.valueOf(Login.instancia.getlistaasignaturap().get(practicas.getSelectedIndex()).getNumeroCreditos())); 
+       horasd.setText(String.valueOf(Login.instancia.getlistaasignaturap().get(practicas.getSelectedIndex()).getHorasDedicadas()));
+       cat.setText(Login.instancia.getlistaasignaturap().get(practicas.getSelectedIndex()).getCategoriaCurso());
+       mat.setText(Login.instancia.getlistaasignaturap().get(practicas.getSelectedIndex()).getMaterialApollo());
+       op.setText(Login.instancia.getlistaasignaturap().get(practicas.getSelectedIndex()).getSistemaOperativo());
+      }catch(IndexOutOfBoundsException e){
+      System.out.printf(e.getMessage());
+      }
+    }//GEN-LAST:event_practicasActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void teoricasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teoricasActionPerformed
+        try{   
+        nom1.setText(Login.instancia.getlistaasignaturat().get(teoricas.getSelectedIndex()).getNombre()); 
+        cred1.setText(String.valueOf(Login.instancia.getlistaasignaturat().get(teoricas.getSelectedIndex()).getNumeroCreditos())); 
+        horasd1.setText(String.valueOf(Login.instancia.getlistaasignaturat().get(teoricas.getSelectedIndex()).getHorasDedicadas()));
+        cat1.setText(Login.instancia.getlistaasignaturat().get(teoricas.getSelectedIndex()).getCategoriaCurso());
+        op1.setText(Login.instancia.getlistaasignaturat().get(teoricas.getSelectedIndex()).getPagina());
+        }catch(IndexOutOfBoundsException e){
+      System.out.printf(e.getMessage());
+      }
+    }//GEN-LAST:event_teoricasActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+ Login.instancia.modificarasigpractica(mat.getText(),op.getText(), nom.getText() , Integer.parseInt(cred.getText()), Integer.parseInt(horasd.getText()), cat.getText());
+       //  asigpractica.setVisible(true);
+ //this.dispose();
+ jDialog1.setVisible(true);
+this.dispose();
+ 
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+ Login.instancia.modificarasigteorica(op1.getText(), nom1.getText() , Integer.parseInt(cred1.getText()), Integer.parseInt(horasd1.getText()), cat1.getText());
+      
+ jDialog1.setVisible(true);
+ this.dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+//new PaginaProfesor().setVisible(true);  
+this.setVisible(true);
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -352,13 +517,15 @@ public class PaginaProfesor extends javax.swing.JFrame {
     private javax.swing.JTextField horasd;
     private javax.swing.JTextField horasd1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -379,5 +546,7 @@ public class PaginaProfesor extends javax.swing.JFrame {
     private javax.swing.JTextField nom1;
     private javax.swing.JTextField op;
     private javax.swing.JTextField op1;
+    private javax.swing.JComboBox practicas;
+    private javax.swing.JComboBox teoricas;
     // End of variables declaration//GEN-END:variables
 }
