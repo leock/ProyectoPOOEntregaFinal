@@ -136,7 +136,7 @@ public class Controlador {
             Semestre ns = new Semestre(i);
             listaSemestres.add(ns);
         }
-        insertarCursosSemestre();
+     //   insertarCursosSemestre();
     }
     
     /**
@@ -144,7 +144,7 @@ public class Controlador {
      * @param s numero que identifica el semestre
      * @return posicion del semestre en la lista
      */
-    private int buscarSemestre(int s){
+    public int buscarSemestre(int s){
         for (int i = 0, l = listaSemestres.size(); i < l; i++){
             if (listaSemestres.get(i).getNumero() == s){
                 return i;
@@ -153,48 +153,8 @@ public class Controlador {
         return -1;
     }
     
-    /*
-     * Se insertan los datos en el sistema
-     */
-    public void insertarCursosSemestre(){
-        AsignaturaPractica as1 = new AsignaturaPractica("apollo", "windows", "Fundamentos",
-                4, 12, "computacion");
-        listaSemestres.get(buscarSemestre(1)).agregarAsignatura(as1);
-        Profesor p1 = new Profesor("Oscar", "2-2222-2222", "Computacion", "oviquez", "123");
-        HorarioGrupo h1 = new HorarioGrupo("Lunes", "7:00", "11:30");
-        Grupo g1 = new Grupo("G50", as1, p1, h1);
-        listagrupo.add(g1);
-        
-        AsignaturaPractica as2 = new AsignaturaPractica("apollo", "windows", "Intro",
-                4, 12, "computacion");
-        listaSemestres.get(buscarSemestre(1)).agregarAsignatura(as2);
-        HorarioGrupo h2 = new HorarioGrupo("Martes", "7:55", "11:30");
-        Grupo g2 = new Grupo("G50", as2, p1, h2);
-        listagrupo.add(g2);
-        
-        
-        AsignaturaPractica as3 = new AsignaturaPractica("apollo", "windows", "Taller",
-                4, 12, "computacion");
-        listaSemestres.get(buscarSemestre(1)).agregarAsignatura(as3);
-        HorarioGrupo h3 = new HorarioGrupo("Miercoles", "7:00", "11:30");
-        Grupo g3 = new Grupo("G50", as3, p1, h3);
-        listagrupo.add(g3);
-        
-        
-        AsignaturaPractica as4 = new AsignaturaPractica("apollo", "windows", "Comunicacion",
-                2, 6, "ciencias");
-        listaSemestres.get(buscarSemestre(1)).agregarAsignatura(as4);
-        HorarioGrupo h4 = new HorarioGrupo("Lunes", "7:00", "11:30");
-        Grupo g4 = new Grupo("G50", as4, p1, h4);
-        listagrupo.add(g4);
-        
-        //imprime los semestres y los cursos
-        for (int i = 0, l = listaSemestres.size(); i < l; i++){
-            System.out.println(listaSemestres.get(i).toString());
-        }
-        
-    }
-    
+   
+      
     /**
      * se encarga de meter en un arreglo los semestres
      * @return arreglo con los numeros de los semestres 
@@ -263,11 +223,20 @@ public class Controlador {
             int c = calcularColumna(grupo.getHorario().getDia());
             int hI = calcularFila(grupo.getHorario().getHoraInicio());
             int hF = calcularFila(grupo.getHorario().getHoraFinal());
-            if (validarDisponibilidadHora(horario, c, hI, hF)){
+            String y= grupo.getProfesor().getNombre();
+           // String pro= y+c+hI+hF;
+           
+            if ((validarDisponibilidadHora(horario, c, hI, hF))){
                 for (; hI <= hF; hI++){
-                    System.out.println(grupo.getAsignaturo().getNombre()+"->"+hI+" "+hF);
-                    horario[hI][c] = grupo.getAsignaturo().getNombre();
-                }
+                    System.out.println(grupo.getAsignaturo().getNombre()+"->"+hI+" "+hF+" "+y);
+                    if(!horario[hI][c].equals("")){
+                    
+                    horario[hI][c] = horario[hI][c].concat( grupo.getAsignaturo().getNombre());
+                    
+                } else{
+                        
+                      horario[hI][c] = grupo.getAsignaturo().getNombre();  
+                    }}
             }else{
                 System.out.println("choque");
                 listaGruposChoques.add(grupo);
@@ -276,7 +245,31 @@ public class Controlador {
         return horario;
     }
     
-    /**
+
+     public ArrayList lista= new ArrayList();
+/**
+ * Valida el choque de horarios profesores
+ * @param z String de datos del horario
+ * @return 
+ */
+     public Boolean profesores(String z){
+        if(lista.isEmpty()){
+           lista.add(z);
+           return true;
+            }
+        if(lista.contains(z)){
+        System.out.print("ya existe");
+        return false;
+        }
+        else{
+       
+        lista.add(z);
+        return true;
+       }
+       
+          }
+    
+       /**
      * Busca un grupo en la lista de grupos
      * @param n nombre de la asignatura del grupo
      * @return el grupo encontrado
@@ -308,8 +301,9 @@ public class Controlador {
             c = 4;
         }else if (d.equals("Viernes")){
             c = 5;
+        
         }else{
-            System.out.println("estas mamando");
+            System.out.println("No es posible");
         }
         return c;
     }
@@ -318,7 +312,7 @@ public class Controlador {
      * Valida la disponibilidad de horario para asignar un curso
      * @param h Matriz de horario
      * @param c Numero de la columna que representa el dia de la semana
-     * @param hI Numero de la fila que representa la hora de iniio del curso
+     * @param hI Numero de la fila que representa la hora de inicio del curso
      * @param hF Numero de la fila que representa la hora de finalizacion del curso
      * @return True en caso de estar disponible el horario consultado, y false
      * en caso de estar asignado ese horario a otro curso
@@ -326,10 +320,13 @@ public class Controlador {
     private boolean validarDisponibilidadHora(String[][] h, int c, int hI, int hF){
         boolean resultado = true;
         for (; hI <= hF; hI++){
-            if (!h[hI][c].equals("")){
-                //System.out.println(h[hI][c]);
+            if ((!h[hI][c].equals(""))){
+                System.out.println(h[hI][c]);
+              //  System.out.println(h[p][c]);
                 resultado = false;
             }
+            
+            
         }
         return resultado;
     }
@@ -343,7 +340,7 @@ public class Controlador {
      */
     private int calcularFila(String hI){
         int inicio = 0;
-        if (hI.equals("7:00") || hI.equals("7:50")){
+        if (hI.equals("7:00") || hI.equals("7:50") ){
             inicio = 0;
         }else if (hI.equals("7:55") || hI.equals("8:45")){
             inicio = 1;
@@ -408,9 +405,33 @@ public class Controlador {
     return listaAsignaturaTeoricas;
     }
     
-    
-    
-    public void modificarasigpractica(String mA, String sO, String nom, int num, int hD, String cC){
+     /**
+     * Obtiene los datos de la lista de asignaturas teóricas
+     * @return lista de asignaturas teóricas
+     */
+    public LinkedList<Semestre> getlistasemestre(){
+    return listaSemestres;
+    }
+      /**
+     * Obtiene los datos de la lista de asignaturas teóricas
+     * @return lista de asignaturas teóricas
+     */
+    public LinkedList<Grupo> getlistagrupo(){
+    return listagrupo;
+    }
+    /**
+     * Permite modificar las asignaturas practicas por parte del profesor
+     * @param mA Representa el material de apoyo
+     * @param sO Representa el sistema operativo
+     * @param nom Representa el nombre del curso
+     * @param num Representa el numero de creditos
+     * @param hD Representa horas dedicación
+     * @param cC Representa el tipo de curso
+     * @param d Representa el dia 
+     * @param hI Representa la hora de inicio
+     * @param hF Representa la hora de finalización
+     */
+    public void modificarasigpractica(String mA, String sO, String nom, int num, int hD, String cC, String d, String hI, String hF){
      for (int i = 0, l = listaAsignaturaPractica.size(); i < l; i++){
             if (listaAsignaturaPractica.get(i).getNombre().equals( nom)){
                 
@@ -419,11 +440,22 @@ public class Controlador {
                 listaAsignaturaPractica.get(i).setCategoriaCurso(cC);
                 listaAsignaturaPractica.get(i).setMaterialApollo(mA);
                 listaAsignaturaPractica.get(i).setSistemaOperativo(sO);
-                
+            listagrupo.get(i).getHorario().setDia(d);   
+            listagrupo.get(i).getHorario().setHoraInicio(hI);
+            listagrupo.get(i).getHorario().setHoraFinal(hF);
                 
             }}
     }
-         public void modificarasigteorica(String p, String nom, int num, int hD, String cC){
+    
+    /**
+     * Permite modificar las asignaturas practicas por parte del profesor
+     * @param p Representa la página web
+     * @param nom Representa el nombre del curso
+     * @param num Representa el numero de creditos
+     * @param hD Representa horas dedicación
+     * @param cC Representa el tipo de curso 
+     */
+         public void modificarasigteorica(String p, String nom, int num, int hD, String cC,String d, String hI, String hF){
      for (int i = 0, l = listaAsignaturaTeoricas.size(); i < l; i++){
             if (listaAsignaturaTeoricas.get(i).getNombre().equals( nom)){
                 
@@ -431,8 +463,10 @@ public class Controlador {
                 listaAsignaturaTeoricas.get(i).setHorasDedicadas(hD);
                 listaAsignaturaTeoricas.get(i).setCategoriaCurso(cC);
                 
-                listaAsignaturaTeoricas.get(i).setPagina(cC);
-                
+                listaAsignaturaTeoricas.get(i).setPagina(p);
+                listagrupo.get(i).getHorario().setDia(d);   
+                listagrupo.get(i).getHorario().setHoraInicio(hI);
+                listagrupo.get(i).getHorario().setHoraFinal(hF);
                 
             }}
         

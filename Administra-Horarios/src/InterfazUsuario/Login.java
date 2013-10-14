@@ -18,6 +18,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        
     }
 
     /**
@@ -29,6 +30,9 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
+        jLabel8 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         tfNombreUsuario = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -37,6 +41,42 @@ public class Login extends javax.swing.JFrame {
         bIngresar = new javax.swing.JButton();
         cbTipoUsuario = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
+
+        jDialog1.setMinimumSize(new java.awt.Dimension(400, 300));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 2, 24)); // NOI18N
+        jLabel8.setText("Horario no disponible !!!");
+
+        jButton2.setText("Aceptar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addGap(152, 152, 152)
+                        .addComponent(jButton2))
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(73, Short.MAX_VALUE))
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addGap(99, 99, 99)
+                .addComponent(jLabel8)
+                .addGap(45, 45, 45)
+                .addComponent(jButton2)
+                .addContainerGap(119, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -105,8 +145,7 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public static Controlador instancia = new Controlador();
-    private static Usuario instaciau= new Usuario(null, null, null);
-    private static Departamento instaciad= new Departamento(null);    
+    public static Boolean realizado= false; 
     private void bIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bIngresarActionPerformed
         String nU = tfNombreUsuario.getText().toString();
         char[] cUC = tfContraseñaUsuario.getPassword();
@@ -117,7 +156,7 @@ public class Login extends javax.swing.JFrame {
         instancia.insertarUsuario(u1);
         u1 = new Usuario("oscar@gmail.com", "123", "Profesor");
         instancia.insertarUsuario(u1);
-        u1 = new Usuario("leo@gmail.com", "123", "Coordinador");
+        u1 = new Usuario("l", "1", "Coordinador");
         instancia.insertarUsuario(u1);
         
         String resultado = instancia.validarUsuario(nU, cU, tU);
@@ -128,10 +167,16 @@ public class Login extends javax.swing.JFrame {
             instancia.usuarioActual = nU;
             instancia.tipoUsuarioActual = tU;
             if (tU.equals("Coordinador")){
-                insertardatos();
+            
                 new PaginaCoordinador().setVisible(true);
             }else if (tU.equals("Estudiante")){
-                new PaginaEstudiante().setVisible(true);
+                if(Login.realizado==true){
+                new PaginaEstudiante().setVisible(true);}
+                 else{
+            this.dispose();
+            jDialog1.setVisible(true);
+        
+        }
             }else {
                 new PaginaProfesor().setVisible(true);
             }
@@ -145,6 +190,14 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_bIngresarActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.setVisible(true);
+        jDialog1.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    /**
+     * Inserciones de datos del sistema
+     */
     public static void insertardatos(){
       //Inserciones de Semestres
       Semestre s1= new Semestre(1);
@@ -173,7 +226,11 @@ public class Login extends javax.swing.JFrame {
       Profesor p1 = new Profesor("Oscar Viquez", "1-111-111","Computación","oscar@gmail.com","123");
       instancia.insertarProfesor(p1);
       Profesor p2 = new Profesor("Lorena Valerio", "1-211-111","Computación","lorena@gmail.com","123");
-      instancia.insertarProfesor(p1);  
+      instancia.insertarProfesor(p2);  
+      Profesor p3 = new Profesor("Rodolfo Rojas", "1-212-111","Ciencias","rodolfo@gmail.com","123");
+      instancia.insertarProfesor(p2);
+      Profesor p4 = new Profesor("Victoria Romero", "1-231-111","Ciencias","victoria@gmail.com","123");
+      instancia.insertarProfesor(p2); 
       //Inserciones de aulas
       AulaTeorica ate1= new AulaTeorica(true,true,1, "Aula1", "Primer piso", 30);
       instancia.insertarAulaTeorica(ate1);
@@ -188,26 +245,136 @@ public class Login extends javax.swing.JFrame {
       instancia.insertarLaboratorio(l2);
       //Inserciones de Asignatura Practica
       
-      AsignaturaPractica ap1= new AsignaturaPractica("Practica.doc", "Win 7", "Introducción a la Programación", 4, 12, "Carrera");
+      AsignaturaPractica ap1= new AsignaturaPractica("Practica.doc", "Win 7", "Introducción", 4, 12, "Computación");
       instancia.insertarAsignaturaPractica(ap1);
-      AsignaturaPractica ap2= new AsignaturaPractica("Practica1.doc", "Win 7", "Taller", 4, 12, "Carrera");
+      AsignaturaPractica ap2= new AsignaturaPractica("Practica1.doc", "Win 7", "Taller", 4, 12, "Computación");
       instancia.insertarAsignaturaPractica(ap2);
-      AsignaturaPractica ap3= new AsignaturaPractica("Ejercicio.doc", "Win 7", "Calculo", 4, 12, "Servicio");
+      AsignaturaPractica ap3= new AsignaturaPractica("Practica1.doc", "Win 7", "Fundamentos", 4, 12, "Computación");
       instancia.insertarAsignaturaPractica(ap3);
+      AsignaturaPractica ap4= new AsignaturaPractica("Ejercicio.doc", "Win 7", "Matemáticas Discretas", 4, 12, "Ciencias");
+      instancia.insertarAsignaturaPractica(ap4);
+
+      AsignaturaPractica ap5= new AsignaturaPractica("Practica1.doc", "Win 7", "Calculo", 4, 12, "Ciencias");
+      instancia.insertarAsignaturaPractica(ap5);
+      AsignaturaPractica ap6= new AsignaturaPractica("Ejercicio.doc", "Win 7", "Estructuras Datos", 4, 12, "Computación");
+      instancia.insertarAsignaturaPractica(ap6);
+      AsignaturaPractica ap7= new AsignaturaPractica("Ejercicio.doc", "Win 7", "POO", 4, 12, "Computación");
+      instancia.insertarAsignaturaPractica(ap7);
       
+       AsignaturaPractica ap8= new AsignaturaPractica("Practica1.doc", "Win 7", "Bases I", 4, 12, "Computación");
+      instancia.insertarAsignaturaPractica(ap8);
+      AsignaturaPractica ap9= new AsignaturaPractica("Ejercicio.doc", "Win 7", "Analisis", 4, 12, "Computación");
+      instancia.insertarAsignaturaPractica(ap9);
+      AsignaturaPractica ap10= new AsignaturaPractica("Ejercicio.doc", "Win 7", "Algebra", 4, 12, "Ciencias");
+      instancia.insertarAsignaturaPractica(ap10);
       //Inserciones de Asignatura Teorica
       
-      AsignaturaTeorica at1= new AsignaturaTeorica("www.ayuda.com","Computación y Sociedad" , 4, 12, "Servicio");
+      AsignaturaTeorica at1= new AsignaturaTeorica("www.ayuda.com","Comunicación" , 4, 12, "Ciencias");
       instancia.insertarAsignaturaTeorica(at1);
-      AsignaturaTeorica at2= new AsignaturaTeorica("www.ayuda.com","Administración de Proyectos" , 4, 12, "Servicio");
+      AsignaturaTeorica at2= new AsignaturaTeorica("www.ayuda.com","Inglés I" , 4, 12, "Ciencias");
       instancia.insertarAsignaturaTeorica(at2);
-      AsignaturaTeorica at3= new AsignaturaTeorica("www.ayuda.com","Aseguramiento de la Calidad" , 4, 12, "Servicio");
+      
+      
+      AsignaturaTeorica at3= new AsignaturaTeorica("www.ayuda.com","Ingles II" , 4, 12, "Ciencias");
       instancia.insertarAsignaturaTeorica(at3);
     
+      AsignaturaTeorica at4= new AsignaturaTeorica("www.ayuda.com","Arquitectura" , 4, 12, "Computación");
+      instancia.insertarAsignaturaTeorica(at4);
+      
+       AsignaturaTeorica at5= new AsignaturaTeorica("www.ayuda.com","Ingles III" , 4, 12, "Ciencias");
+      instancia.insertarAsignaturaTeorica(at5);
+    
+      AsignaturaTeorica at6= new AsignaturaTeorica("www.ayuda.com","Ambiente" , 4, 12, "Computación");
+      instancia.insertarAsignaturaTeorica(at6);
       //Inserciones de Grupos
       
-      //Grupo g1= new Grupo("50", at3, p2);
-      //Grupo g2= new Grupo("51", at2, p1);
+
+      
+        instancia.getlistasemestre().get(instancia.buscarSemestre(1)).agregarAsignatura(ap1);
+        HorarioGrupo h1 = new HorarioGrupo("Lunes", "7:00", "11:30");
+        Grupo g1 = new Grupo("G50", ap1, p1, h1);
+        instancia.insertargrupo(g1);
+       
+        instancia.getlistasemestre().get(instancia.buscarSemestre(1)).agregarAsignatura(ap2);
+        HorarioGrupo h2 = new HorarioGrupo("Martes", "7:55", "11:30");
+        Grupo g2 = new Grupo("G50", ap2, p2, h2);
+        instancia.insertargrupo(g2);
+       
+        instancia.getlistasemestre() .get(instancia.buscarSemestre(1)).agregarAsignatura(ap3);
+        HorarioGrupo h3 = new HorarioGrupo("Miercoles", "7:00", "11:30");
+        Grupo g3 = new Grupo("G50", ap3, p2, h3);
+        instancia.insertargrupo(g3);
+       
+        instancia.getlistasemestre().get(instancia.buscarSemestre(1)).agregarAsignatura(ap4);
+        HorarioGrupo h4 = new HorarioGrupo("Lunes", "7:00", "11:30");
+        Grupo g4 = new Grupo("G50", ap4, p2, h4);
+        instancia.insertargrupo(g4);
+        
+        instancia.getlistasemestre().get(instancia.buscarSemestre(1)).agregarAsignatura(at1);
+        HorarioGrupo h5 = new HorarioGrupo("Lunes", "12:30", "4:05");
+        Grupo g5 = new Grupo("G50", at1, p3, h5);
+        instancia.insertargrupo(g5);
+        
+        instancia.getlistasemestre().get(instancia.buscarSemestre(1)).agregarAsignatura(at2);
+        HorarioGrupo h6 = new HorarioGrupo("Viernes", "7:00", "11:30");
+        Grupo g6 = new Grupo("G50", at2, p4, h6);
+        instancia.insertargrupo(g6);
+        
+        
+        
+        instancia.getlistasemestre().get(instancia.buscarSemestre(2)).agregarAsignatura(ap5);
+        HorarioGrupo h7 = new HorarioGrupo("Lunes", "7:00", "11:30");
+        Grupo g7 = new Grupo("G50", ap5, p1, h7);
+        instancia.insertargrupo(g7);
+       
+        instancia.getlistasemestre().get(instancia.buscarSemestre(2)).agregarAsignatura(ap6);
+        HorarioGrupo h8 = new HorarioGrupo("Martes", "7:55", "11:30");
+        Grupo g8 = new Grupo("G50", ap6, p2, h8);
+        instancia.insertargrupo(g8);
+       
+        instancia.getlistasemestre() .get(instancia.buscarSemestre(2)).agregarAsignatura(ap7);
+        HorarioGrupo h9 = new HorarioGrupo("Miercoles", "7:00", "11:30");
+        Grupo g9 = new Grupo("G50", ap7, p2, h9);
+        instancia.insertargrupo(g9);
+       
+        instancia.getlistasemestre().get(instancia.buscarSemestre(2)).agregarAsignatura(at3);
+        HorarioGrupo h10 = new HorarioGrupo("Jueves", "7:00", "11:30");
+        Grupo g10 = new Grupo("G50", at3, p2, h10);
+        instancia.insertargrupo(g10);
+        
+        instancia.getlistasemestre().get(instancia.buscarSemestre(2)).agregarAsignatura(at4);
+        HorarioGrupo h11 = new HorarioGrupo("Jueves", "12:30", "4:05");
+        Grupo g11 = new Grupo("G50", at4, p3, h11);
+        instancia.insertargrupo(g11);
+        
+        
+         
+        instancia.getlistasemestre().get(instancia.buscarSemestre(3)).agregarAsignatura(ap8);
+        HorarioGrupo h12 = new HorarioGrupo("Lunes", "7:00", "11:30");
+        Grupo g12 = new Grupo("G50", ap8, p1, h12);
+        instancia.insertargrupo(g12);
+       
+        instancia.getlistasemestre().get(instancia.buscarSemestre(2)).agregarAsignatura(ap9);
+        HorarioGrupo h13 = new HorarioGrupo("Viernes", "7:55", "11:30");
+        Grupo g13 = new Grupo("G50", ap9, p2, h13);
+        instancia.insertargrupo(g13);
+       
+        instancia.getlistasemestre() .get(instancia.buscarSemestre(3)).agregarAsignatura(ap10);
+        HorarioGrupo h14 = new HorarioGrupo("Miercoles", "7:00", "11:30");
+        Grupo g14 = new Grupo("G50", ap10, p2, h14);
+        instancia.insertargrupo(g14);
+       
+        instancia.getlistasemestre().get(instancia.buscarSemestre(3)).agregarAsignatura(at5);
+        HorarioGrupo h15 = new HorarioGrupo("Martes", "7:00", "11:30");
+        Grupo g15 = new Grupo("G50", at5, p2, h15);
+        instancia.insertargrupo(g15);
+        
+        instancia.getlistasemestre().get(instancia.buscarSemestre(3)).agregarAsignatura(at6);
+        HorarioGrupo h16 = new HorarioGrupo("Lunes", "12:30", "4:05");
+        Grupo g16 = new Grupo("G50", at6, p3, h16);
+        instancia.insertargrupo(g16);
+        
+    
     
     }
     
@@ -245,7 +412,7 @@ public class Login extends javax.swing.JFrame {
                 
                 insertardatos();
                 //Controlador ins = new Controlador();
-                instancia.insertarCursosSemestre();
+              //  instancia.insertarCursosSemestre();
                 //insertarCantidadSemestres(8);
             }
         });
@@ -255,10 +422,13 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bIngresar;
     private javax.swing.JComboBox cbTipoUsuario;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPasswordField tfContraseñaUsuario;
     private javax.swing.JTextField tfNombreUsuario;
     // End of variables declaration//GEN-END:variables

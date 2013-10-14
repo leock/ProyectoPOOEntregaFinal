@@ -58,8 +58,18 @@ public class PaginaProfesor extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         horasd = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
-        practicas = new javax.swing.JComboBox();
+        cbpracticas = new javax.swing.JComboBox();
         jLabel11 = new javax.swing.JLabel();
+        cbDia = new javax.swing.JComboBox();
+        cbHoraInicio = new javax.swing.JComboBox();
+        cbHoraFinal = new javax.swing.JComboBox();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jButton7 = new javax.swing.JButton();
         asigteo = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         nom1 = new javax.swing.JTextField();
@@ -72,16 +82,23 @@ public class PaginaProfesor extends javax.swing.JFrame {
         op1 = new javax.swing.JTextField();
         MA = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
-        teoricas = new javax.swing.JComboBox();
+        cbteoricas = new javax.swing.JComboBox();
         jLabel12 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
+        cbDia1 = new javax.swing.JComboBox();
+        cbHoraInicio1 = new javax.swing.JComboBox();
+        cbHoraFinal1 = new javax.swing.JComboBox();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
 
-        jDialog1.setMinimumSize(new java.awt.Dimension(100, 100));
+        jDialog1.setMinimumSize(new java.awt.Dimension(300, 200));
 
         jLabel13.setText("Modificado con Exito!!!");
 
@@ -131,6 +148,9 @@ public class PaginaProfesor extends javax.swing.JFrame {
 
         lTipoUsuario.setText(" ");
 
+        asigpractica.setMinimumSize(new java.awt.Dimension(550, 280));
+        asigpractica.setName(""); // NOI18N
+        asigpractica.setPreferredSize(new java.awt.Dimension(550, 280));
         asigpractica.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         SO.setText("Sistema Operativo");
@@ -184,20 +204,56 @@ public class PaginaProfesor extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        asigpractica.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, -1, -1));
+        asigpractica.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, -1, -1));
 
-        practicas.addActionListener(new java.awt.event.ActionListener() {
+        cbpracticas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                practicasActionPerformed(evt);
+                cbpracticasActionPerformed(evt);
             }
         });
-        asigpractica.add(practicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 120, -1));
+        asigpractica.add(cbpracticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 120, -1));
 
         jLabel11.setText("Seleccione el curso");
         asigpractica.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
 
-        asigteo.setMinimumSize(new java.awt.Dimension(415, 210));
-        asigteo.setPreferredSize(new java.awt.Dimension(415, 210));
+        cbDia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes" }));
+        asigpractica.add(cbDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 50, -1, -1));
+
+        cbHoraInicio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "7:00", "7:55", "8:50", "9:45", "10:40", "12:30", "1:25", "2:20", "3:15" }));
+        cbHoraInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbHoraInicioActionPerformed(evt);
+            }
+        });
+        asigpractica.add(cbHoraInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, -1, -1));
+
+        asigpractica.add(cbHoraFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 120, -1, -1));
+
+        jLabel14.setText("Hora Finalización");
+        asigpractica.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, -1, -1));
+
+        jLabel15.setText("Hora Inicio");
+        asigpractica.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 80, 20));
+
+        jLabel16.setText("Dia");
+        asigpractica.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, -1, -1));
+
+        jLabel17.setText("Horario del Curso");
+        asigpractica.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, -1, -1));
+
+        jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        asigpractica.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 10, 220));
+        asigpractica.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 550, -1));
+
+        jButton7.setText("Salir");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        asigteo.setMinimumSize(new java.awt.Dimension(450, 270));
+        asigteo.setPreferredSize(new java.awt.Dimension(550, 270));
         asigteo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setText("Nombre");
@@ -222,7 +278,7 @@ public class PaginaProfesor extends javax.swing.JFrame {
         asigteo.add(horasd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 118, -1));
 
         jLabel10.setText("Categoria");
-        asigteo.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+        asigteo.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
         asigteo.add(cat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 118, -1));
 
         op1.addActionListener(new java.awt.event.ActionListener() {
@@ -230,10 +286,10 @@ public class PaginaProfesor extends javax.swing.JFrame {
                 op1ActionPerformed(evt);
             }
         });
-        asigteo.add(op1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 118, -1));
+        asigteo.add(op1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 118, -1));
 
         MA.setText("Material Apoyo");
-        asigteo.add(MA, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
+        asigteo.add(MA, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, 20));
 
         jButton6.setText("Modificar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -241,24 +297,46 @@ public class PaginaProfesor extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        asigteo.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, -1, -1));
+        asigteo.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, -1, -1));
 
-        teoricas.addActionListener(new java.awt.event.ActionListener() {
+        cbteoricas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                teoricasActionPerformed(evt);
+                cbteoricasActionPerformed(evt);
             }
         });
-        asigteo.add(teoricas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 120, -1));
+        asigteo.add(cbteoricas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 120, -1));
 
         jLabel12.setText("Seleccione el curso");
         asigteo.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
 
-        jButton7.setText("Salir");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        cbDia1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes" }));
+        asigteo.add(cbDia1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 50, -1, -1));
+
+        cbHoraInicio1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "7:00", "7:55", "8:50", "9:45", "10:40", "12:30", "1:25", "2:20", "3:15" }));
+        cbHoraInicio1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                cbHoraInicio1ActionPerformed(evt);
             }
         });
+        asigteo.add(cbHoraInicio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, -1, -1));
+
+        asigteo.add(cbHoraFinal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 120, -1, -1));
+
+        jLabel18.setText("Hora Finalización");
+        asigteo.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, -1, -1));
+
+        jLabel19.setText("Hora Inicio");
+        asigteo.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 80, 20));
+
+        jLabel20.setText("Dia");
+        asigteo.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, -1, -1));
+
+        jLabel21.setText("Horario del Curso");
+        asigteo.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, -1, -1));
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        asigteo.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 10, 190));
+        asigteo.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 550, -1));
 
         jMenu1.setText("Asignatura");
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
@@ -285,9 +363,6 @@ public class PaginaProfesor extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Horario");
-        jMenuBar1.add(jMenu2);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -306,13 +381,13 @@ public class PaginaProfesor extends javax.swing.JFrame {
                 .addGap(79, 79, 79)
                 .addComponent(jButton7))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(asigpractica, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+                .addComponent(asigpractica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(5, 5, 5)
-                    .addComponent(asigteo, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
-                    .addGap(5, 5, 5)))
+                    .addGap(0, 5, Short.MAX_VALUE)
+                    .addComponent(asigteo, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 5, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -323,14 +398,14 @@ public class PaginaProfesor extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(lTipoUsuario)
                     .addComponent(jButton7))
-                .addGap(22, 22, 22)
-                .addComponent(asigpractica, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addComponent(asigpractica, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
+                .addGap(15, 15, 15))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(26, Short.MAX_VALUE)
-                    .addComponent(asigteo, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 49, Short.MAX_VALUE)
+                    .addComponent(asigteo, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 50, Short.MAX_VALUE)))
         );
 
         pack();
@@ -356,27 +431,32 @@ public class PaginaProfesor extends javax.swing.JFrame {
     }//GEN-LAST:event_nomActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-         Boolean t = false;
+         Boolean v= false;  
+         v= true;
+          if (v= true);
+     {
+     cbpracticas.removeAllItems();
+     }
         try{ 
        // practicas.removeAllItems();
-            
+           
         asigteo.setVisible(false);
         asigpractica.setVisible(true);
-        t= true;
+        v=true;
+       
       
         for(int i=0; i<Login.instancia.getlistaasignaturap().size(); i++ ){
-        practicas.addItem(Login.instancia.getlistaasignaturap().get(i).getNombre());
+        cbpracticas.addItem(Login.instancia.getlistaasignaturap().get(i).getNombre());
         }
        
        // teoricas.removeAllItems();
        }catch(IndexOutOfBoundsException e){
        System.out.printf(e.getMessage());
        }
-         
-         if (t){
-         
-     teoricas.removeAllItems();
-         }
+     cbteoricas.removeAllItems();    
+     
+    
+     
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void nom1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nom1ActionPerformed
@@ -388,21 +468,27 @@ public class PaginaProfesor extends javax.swing.JFrame {
     }//GEN-LAST:event_op1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-    Boolean s= false;
+       Boolean v= false;  
+         v= true;
+          if (v= true);
+     {
+     cbteoricas.removeAllItems();
+     }
         try{
         asigpractica.setVisible(false);
         asigteo.setVisible(true);
-        s= true;
+        
          for(int i=0; i<Login.instancia.getlistaasignaturat().size(); i++ ){
-        teoricas.addItem(Login.instancia.getlistaasignaturat().get(i).getNombre());
+        cbteoricas.addItem(Login.instancia.getlistaasignaturat().get(i).getNombre());
         }
 
          //practicas.removeAllItems();
     }catch (IndexOutOfBoundsException e){
        System.out.printf(e.getMessage());
        }
-        if (s){
-        practicas.removeAllItems();}
+        
+        cbpracticas.removeAllItems();
+        
     }//GEN-LAST:event_jMenuItem2ActionPerformed
      
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -410,48 +496,57 @@ public class PaginaProfesor extends javax.swing.JFrame {
         new Login().setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void practicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_practicasActionPerformed
+    private void cbpracticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbpracticasActionPerformed
 
       try{
-       nom.setText(Login.instancia.getlistaasignaturap().get(practicas.getSelectedIndex()).getNombre());
-       cred.setText(String.valueOf(Login.instancia.getlistaasignaturap().get(practicas.getSelectedIndex()).getNumeroCreditos())); 
-       horasd.setText(String.valueOf(Login.instancia.getlistaasignaturap().get(practicas.getSelectedIndex()).getHorasDedicadas()));
-       cat.setText(Login.instancia.getlistaasignaturap().get(practicas.getSelectedIndex()).getCategoriaCurso());
-       mat.setText(Login.instancia.getlistaasignaturap().get(practicas.getSelectedIndex()).getMaterialApollo());
-       op.setText(Login.instancia.getlistaasignaturap().get(practicas.getSelectedIndex()).getSistemaOperativo());
+       nom.setText(Login.instancia.getlistaasignaturap().get(cbpracticas.getSelectedIndex()).getNombre());
+       cred.setText(String.valueOf(Login.instancia.getlistaasignaturap().get(cbpracticas.getSelectedIndex()).getNumeroCreditos())); 
+       horasd.setText(String.valueOf(Login.instancia.getlistaasignaturap().get(cbpracticas.getSelectedIndex()).getHorasDedicadas()));
+       cat.setText(Login.instancia.getlistaasignaturap().get(cbpracticas.getSelectedIndex()).getCategoriaCurso());
+       mat.setText(Login.instancia.getlistaasignaturap().get(cbpracticas.getSelectedIndex()).getMaterialApollo());
+       op.setText(Login.instancia.getlistaasignaturap().get(cbpracticas.getSelectedIndex()).getSistemaOperativo());
+       cbDia.setSelectedItem(Login.instancia.getlistagrupo().get(cbpracticas.getSelectedIndex()).getHorario().getDia());
+       cbHoraInicio.setSelectedItem(Login.instancia.getlistagrupo().get(cbpracticas.getSelectedIndex()).getHorario().getHoraInicio()); 
+       cbHoraFinal.setSelectedItem(Login.instancia.getlistagrupo().get(cbpracticas.getSelectedIndex()).getHorario().getHoraFinal());
       }catch(IndexOutOfBoundsException e){
       System.out.printf(e.getMessage());
       }
-    }//GEN-LAST:event_practicasActionPerformed
+    }//GEN-LAST:event_cbpracticasActionPerformed
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenu1ActionPerformed
 
-    private void teoricasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teoricasActionPerformed
+    private void cbteoricasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbteoricasActionPerformed
         try{   
-        nom1.setText(Login.instancia.getlistaasignaturat().get(teoricas.getSelectedIndex()).getNombre()); 
-        cred1.setText(String.valueOf(Login.instancia.getlistaasignaturat().get(teoricas.getSelectedIndex()).getNumeroCreditos())); 
-        horasd1.setText(String.valueOf(Login.instancia.getlistaasignaturat().get(teoricas.getSelectedIndex()).getHorasDedicadas()));
-        cat1.setText(Login.instancia.getlistaasignaturat().get(teoricas.getSelectedIndex()).getCategoriaCurso());
-        op1.setText(Login.instancia.getlistaasignaturat().get(teoricas.getSelectedIndex()).getPagina());
+        nom1.setText(Login.instancia.getlistaasignaturat().get(cbteoricas.getSelectedIndex()).getNombre()); 
+        cred1.setText(String.valueOf(Login.instancia.getlistaasignaturat().get(cbteoricas.getSelectedIndex()).getNumeroCreditos())); 
+        horasd1.setText(String.valueOf(Login.instancia.getlistaasignaturat().get(cbteoricas.getSelectedIndex()).getHorasDedicadas()));
+        cat1.setText(Login.instancia.getlistaasignaturat().get(cbteoricas.getSelectedIndex()).getCategoriaCurso());
+        op1.setText(Login.instancia.getlistaasignaturat().get(cbteoricas.getSelectedIndex()).getPagina());
+        cbDia1.setSelectedItem(Login.instancia.getlistagrupo().get(cbteoricas.getSelectedIndex()).getHorario().getDia());
+        cbHoraInicio1.setSelectedItem(Login.instancia.getlistagrupo().get(cbteoricas.getSelectedIndex()).getHorario().getHoraInicio()); 
+        cbHoraFinal1.setSelectedItem(Login.instancia.getlistagrupo().get(cbteoricas.getSelectedIndex()).getHorario().getHoraFinal());
         }catch(IndexOutOfBoundsException e){
       System.out.printf(e.getMessage());
       }
-    }//GEN-LAST:event_teoricasActionPerformed
+    }//GEN-LAST:event_cbteoricasActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
- Login.instancia.modificarasigpractica(mat.getText(),op.getText(), nom.getText() , Integer.parseInt(cred.getText()), Integer.parseInt(horasd.getText()), cat.getText());
-       //  asigpractica.setVisible(true);
- //this.dispose();
+ Login.instancia.modificarasigpractica(mat.getText(),op.getText(), nom.getText() , Integer.parseInt(cred.getText()), 
+         Integer.parseInt(horasd.getText()), cat.getText(),cbDia.getSelectedItem().toString(),
+         cbHoraInicio.getSelectedItem().toString(),cbHoraFinal.getSelectedItem().toString());
+       
  jDialog1.setVisible(true);
 this.dispose();
  
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
- Login.instancia.modificarasigteorica(op1.getText(), nom1.getText() , Integer.parseInt(cred1.getText()), Integer.parseInt(horasd1.getText()), cat1.getText());
+ Login.instancia.modificarasigteorica(op1.getText(), nom1.getText() , Integer.parseInt(cred1.getText()), 
+         Integer.parseInt(horasd1.getText()), cat1.getText(),cbDia1.getSelectedItem().toString(),
+         cbHoraInicio1.getSelectedItem().toString(),cbHoraFinal1.getSelectedItem().toString());
       
  jDialog1.setVisible(true);
  this.dispose();
@@ -460,8 +555,30 @@ this.dispose();
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 //new PaginaProfesor().setVisible(true);  
 this.setVisible(true);
+jDialog1.setVisible(false);
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void cbHoraInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbHoraInicioActionPerformed
+        String arregloHoras[] = {"7:50", "8:45", "9:40", "10:35", "11:30",
+            "1:20", "2:15", "3:10", "4:05"};
+        cbHoraFinal.removeAllItems();
+        for (int i = cbHoraInicio.getSelectedIndex(), l = arregloHoras.length;
+            i < l; i++){
+            cbHoraFinal.addItem(arregloHoras[i]);
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbHoraInicioActionPerformed
+
+    private void cbHoraInicio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbHoraInicio1ActionPerformed
+        String arregloHoras[] = {"7:50", "8:45", "9:40", "10:35", "11:30",
+            "1:20", "2:15", "3:10", "4:05"};
+        cbHoraFinal1.removeAllItems();
+        for (int i = cbHoraInicio1.getSelectedIndex(), l = arregloHoras.length;
+            i < l; i++){
+            cbHoraFinal1.addItem(arregloHoras[i]);
+        }  // TODO add your handling code here:
+    }//GEN-LAST:event_cbHoraInicio1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -512,6 +629,14 @@ this.setVisible(true);
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField cat;
     private javax.swing.JTextField cat1;
+    private javax.swing.JComboBox cbDia;
+    private javax.swing.JComboBox cbDia1;
+    private javax.swing.JComboBox cbHoraFinal;
+    private javax.swing.JComboBox cbHoraFinal1;
+    private javax.swing.JComboBox cbHoraInicio;
+    private javax.swing.JComboBox cbHoraInicio1;
+    private javax.swing.JComboBox cbpracticas;
+    private javax.swing.JComboBox cbteoricas;
     private javax.swing.JTextField cred;
     private javax.swing.JTextField cred1;
     private javax.swing.JTextField horasd;
@@ -526,7 +651,15 @@ this.setVisible(true);
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -535,10 +668,13 @@ this.setVisible(true);
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JLabel lNombreUsuario;
     private javax.swing.JLabel lTipoUsuario;
     private javax.swing.JTextField mat;
@@ -546,7 +682,5 @@ this.setVisible(true);
     private javax.swing.JTextField nom1;
     private javax.swing.JTextField op;
     private javax.swing.JTextField op1;
-    private javax.swing.JComboBox practicas;
-    private javax.swing.JComboBox teoricas;
     // End of variables declaration//GEN-END:variables
 }

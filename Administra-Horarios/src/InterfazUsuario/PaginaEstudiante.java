@@ -16,7 +16,6 @@ import javax.swing.table.TableModel;
  * @author Quincho
  */
 public class PaginaEstudiante extends javax.swing.JFrame {
-
     /**
      * Creates new form PaginaEstudiante
      */
@@ -173,7 +172,7 @@ public class PaginaEstudiante extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 561, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,9 +222,13 @@ public class PaginaEstudiante extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void cbSemestreEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSemestreEstudianteActionPerformed
+        
+        
         llenarTablaCursos();
         llenarTablaHorarios();
         llenarTablaChoques();
+        
+       
         // TODO add your handling code here:
     }//GEN-LAST:event_cbSemestreEstudianteActionPerformed
 

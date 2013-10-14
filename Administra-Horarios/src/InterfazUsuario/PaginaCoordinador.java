@@ -236,6 +236,12 @@ public class PaginaCoordinador extends javax.swing.JFrame {
             }
         });
 
+        cbHoraFinal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbHoraFinalActionPerformed(evt);
+            }
+        });
+
         lNombreAsignatura.setText(" ");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -351,7 +357,7 @@ public class PaginaCoordinador extends javax.swing.JFrame {
      * mostrando la informacion
      */
     private int posicion = -1;
-    
+   
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.setVisible(false);
         new Login().setVisible(true);
@@ -369,8 +375,11 @@ public class PaginaCoordinador extends javax.swing.JFrame {
     }//GEN-LAST:event_cbSemestreEstudianteActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+   
+      Login.realizado= true;
         llenarTablaHorarios();
         llenarTablaChoques();
+
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -400,6 +409,10 @@ public class PaginaCoordinador extends javax.swing.JFrame {
         desplazamiento("");
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void cbHoraFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbHoraFinalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbHoraFinalActionPerformed
 
     /**
      * @param args the command line arguments
